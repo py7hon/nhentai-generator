@@ -5,12 +5,21 @@
     img{
       width: 300px;
       margin-bottom: 1em;
+      @media screen and (max-width: 768px){
+        width: 220px;
+      }
     }
     h1{
       margin-bottom: 0;
+      @media screen and (max-width: 768px){
+        font-size: 2em;
+      }
     }
     i{
       font-weight: 300;
+      @media screen and (max-width: 768px){
+        font-size: .9em;
+      }
     }
   }
   .generate{

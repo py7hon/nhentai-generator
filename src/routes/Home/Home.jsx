@@ -24,7 +24,7 @@ class Home extends Component {
     return (
       <div className="container">
         <div className="title">
-          <img src={Assets.NHen}/><br/>
+          <img src={Assets.NHen} alt="nHentai Logo"/><br/>
           <h1>NHentai Number Generator</h1>
           <i>Your pleasure, my pleasure! No, it's OUR PLEASURE!</i>
         </div>
@@ -36,7 +36,7 @@ class Home extends Component {
               <div>
                 This is your nHentai number:<br/>
                 Click the number to access the doujin: <br/>
-                <a href={`https://nhentai.net/g/${number}`} target="_blank">{number}</a>
+                <a href={`https://nhentai.net/g/${number}`} target="_blank" rel="noopener noreferrer">{number}</a>
               </div>
             }
           </div>

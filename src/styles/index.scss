@@ -13,7 +13,7 @@
 }
 
 *::selection {
-  background: rgba($light-blue, 0.5);
+  background: rgba($red, 0.5);
 }
 
 html {
@@ -37,6 +37,7 @@ a {
   color: $bg-color;
   &:hover {
     text-decoration: none;
+    color: $red;
   }
 }
 

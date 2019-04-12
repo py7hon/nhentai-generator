@@ -24,9 +24,7 @@ class App extends Component {
     return (
       <HashRouter>
         <NavbarHeader/>
-        <div>
-          {this.routes.map((route, i) => <Route {...route}/>)}
-        </div>
+        {this.routes.map((route, i) => <Route {...route}/>)}
       </HashRouter>
     );
   }

@@ -51,12 +51,8 @@ ol {
 
 .container {
   width: 83%;
-  margin: 150px auto 50px;
+  margin: 0 auto;
   min-height: 500px;
-
-  @media (max-width: 1500px) {
-    margin-top: 120px;
-  }
 
   @media (max-width: 1024px) {
     width: 90%;

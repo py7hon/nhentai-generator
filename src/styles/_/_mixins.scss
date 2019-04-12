@@ -1,0 +1,102 @@
+/**
+* all mixin must be wrote in here
+*/
+@import "./variables.scss";
+
+@mixin media-query($bp) {
+  // TODO: media query kalo misal heightnya kecil, atau mobile tapi lanscape
+  @if $bp == mobile {
+    @media screen and (max-width: $mobile-bp) {
+      @content;
+    }
+  } @else if $bp == mobile-old {
+    @media screen and (max-width: $mobile-old-bp) {
+      @content;
+    }
+  } @else if $bp == tablet {
+    @media screen and (max-width: $tablet) {
+      @content;
+    }
+  } @else if $bp == laptop-hd {
+    @media screen and (min-width: 1024px) and (max-width: $laptop-hd) {
+      @content;
+    }
+  }
+}
+
+@mixin linear-gradient($direction, $color1, $color2, $color3) {
+  background-image: -webkit-linear-gradient(
+    $direction,
+    $color1,
+    $color2,
+    $color3
+  );
+  background-image: -moz-linear-gradient($direction, $color1, $color2, $color3);
+  background-image: -ms-linear-gradient($direction, $color1, $color2, $color3);
+  background-image: -o-linear-gradient($direction, $color1, $color2, $color3);
+  background-image: linear-gradient($direction, $color1, $color2, $color3);
+}
+
+// =============================================================================
+// String Replace
+// =============================================================================
+
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1) + $replace +
+      str-replace(
+        str-slice($string, $index + str-length($search)),
+        $search,
+        $replace
+      );
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+
+@mixin font-face(
+  $name,
+  $path,
+  $weight: null,
+  $style: null,
+  $exts: eot woff2 woff ttf svg
+) {
+  $src: null;
+
+  $extmods: (
+    eot: "?",
+    svg: "#" + str-replace($name, " ", "_")
+  );
+
+  $formats: (
+    otf: "opentype",
+    ttf: "truetype"
+  );
+
+  @each $ext in $exts {
+    $extmod: if(
+      map-has-key($extmods, $ext),
+      $ext + map-get($extmods, $ext),
+      $ext
+    );
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append(
+      $src,
+      url(quote($path + "." + $extmod)) format(quote($format)),
+      comma
+    );
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}

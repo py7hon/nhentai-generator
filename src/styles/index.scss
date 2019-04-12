@@ -1,0 +1,181 @@
+// https://sass-lang.com/guide
+@import "./libs.scss";
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css");
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans:300,400,600,700");
+@import '../../node_modules/bootstrap/scss/bootstrap';
+
+* {
+  color: #000000;
+  font-family: "Josefin Sans", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+*::selection {
+  background: rgba($light-blue, 0.5);
+}
+
+html {
+  font-size: 16px;
+  @include media-query(laptop-hd) {
+    font-size: 16px;
+  }
+  @include media-query(tablet) {
+    font-size: 16px;
+  }
+}
+
+body {
+  margin: 0;
+  background-color: white;
+}
+
+a {
+  border: none;
+  text-decoration: none;
+  color: $gray;
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+img {
+  user-select: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.container {
+  width: 83%;
+  margin: 150px auto 50px;
+  min-height: 500px;
+
+  @media (max-width: 1500px) {
+    margin-top: 120px;
+  }
+
+  @media (max-width: 1024px) {
+    width: 90%;
+  }
+
+  @media (max-width: 580px) {
+    width: 95%;
+  }
+}
+
+textarea,
+select,
+input,
+button,
+a {
+  outline: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/** Input section **/
+label.radio {
+  display: block;
+  position: relative;
+  padding-left: 20px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+    & + span {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 15px;
+      width: 15px;
+      background-color: $white;
+      border-radius: 50%;
+      border: 1px solid $orange;
+    }
+
+    &::checked ~ span {
+      background-color: $white;
+    }
+
+    & + span::after {
+      content: "";
+      position: absolute;
+    }
+
+    &::checked ~ span:after {
+      display: block;
+      background: $orange;
+    }
+  }
+
+  span:after {
+    top: 2px;
+    left: 2px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: white;
+    transition: 0.2s;
+  }
+
+  &:hover {
+    input[type="radio"] ~ span:after {
+      background: $orange;
+      display: block;
+    }
+  }
+}
+
+/** For custom css slick **/
+
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.6);
+  height: 50px;
+  width: 30px;
+
+  &:hover,
+  &:focus {
+    background: rgba(0, 0, 0, 1);
+  }
+}
+
+.slick-prev {
+  left: 0;
+
+  &::before {
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAfCAYAAAAFkva3AAAAmklEQVRIie3PsQnCQABA0RM7G2s7W8UhxDFibRNcwdoZ3MHaziIjOEPAwgmECM8mgiAkl3B2+QM8+CH0CDlKVCiw7OMEHP12xzQF9GmbCoJdKuiJeQrohWyABqgFypNANVYmgWqsasBumHTBipbNazSIBR4pwdUADuB/wAtGKcFNFBYJ7qOxCHDdCWsAz52hL3CGA07IMA4hhDfsjGKYMTWwuAAAAABJRU5ErkJggg==);
+  }
+}
+
+.slick-next {
+  right: 0;
+
+  &::before {
+    content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAAfCAYAAAAFkva3AAAAnUlEQVRIie3WoQ3CYBCA0QrCChXdAMMSCAQCzQgohiABzxpM0+DYoRoS0ofgBCFQSvkxpJ+/l9ypyzDAFhVO2CPPuhTQY0cUXbDqCdYNjNVe9RkYN2qqPYg8BpKBRQ/24G/AEsOU4LwVFuDqDbZsCy1waYBqjFNAsE4FbXroX6FZEiiwQxIosDoJFFiZBApsgvPX0B04cntgdph2da7KmV1GWmiOxgAAAABJRU5ErkJggg==);
+  }
+}
+
+.slick-disabled {
+  display: none !important;
+}

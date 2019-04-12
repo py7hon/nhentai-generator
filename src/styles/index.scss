@@ -6,7 +6,7 @@
 @import '../../node_modules/bootstrap/scss/bootstrap';
 
 * {
-  color: #000000;
+  color: $darkgray;
   font-family: "Josefin Sans", sans-serif;
   margin: 0;
   padding: 0;
@@ -28,13 +28,13 @@ html {
 
 body {
   margin: 0;
-  background-color: white;
+  background-color: $bg-color;
 }
 
 a {
   border: none;
   text-decoration: none;
-  color: $gray;
+  color: $darkgray;
   &:hover {
     text-decoration: none;
   }

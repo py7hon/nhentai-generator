@@ -1,0 +1,17 @@
+@import "./_/_keyframes.scss";
+@import "./_/_mixins.scss";
+@import "./_/_variables.scss";
+
+.content{
+  margin: 24px;
+  background: white;
+  padding: 20px 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+  @media screen and (max-width: 800px){
+    width: 92vw;
+  }
+  @media screen and (max-width: 480px){
+    width: 88vw;
+  }
+}

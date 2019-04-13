@@ -12,19 +12,19 @@ self.__precacheManifest = [
     "url": "/nhentai-generator/static/js/runtime~main.d9c16c5e.js"
   },
   {
-    "revision": "f36e0bc895f1b5aeb328",
-    "url": "/nhentai-generator/static/js/main.95eae557.chunk.js"
+    "revision": "c0c708ae1ec28df0ffac",
+    "url": "/nhentai-generator/static/js/main.caed083b.chunk.js"
   },
   {
     "revision": "15c3a967debe9cb4c9cf",
     "url": "/nhentai-generator/static/js/2.f98a4699.chunk.js"
   },
   {
-    "revision": "f36e0bc895f1b5aeb328",
+    "revision": "c0c708ae1ec28df0ffac",
     "url": "/nhentai-generator/static/css/main.9f9b3aab.chunk.css"
   },
   {
-    "revision": "6ada0b1aaf9ba672f9dc9eb7537cba60",
+    "revision": "4cdd9b629d4eaddeecd64c81c32ff766",
     "url": "/nhentai-generator/index.html"
   }
 ];

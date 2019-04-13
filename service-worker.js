@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/nhentai-generator/precache-manifest.a7389f25b5f174cc0c16c7fae3c6bbab.js"
+  "/nhentai-generator/precache-manifest.c9d8bea17bce7b76e52de31638d0f0bc.js"
 );
 
 workbox.clientsClaim();

@@ -24,7 +24,7 @@ self.__precacheManifest = [
     "url": "/nhentai-generator/static/css/main.9f9b3aab.chunk.css"
   },
   {
-    "revision": "4cdd9b629d4eaddeecd64c81c32ff766",
+    "revision": "3a5c2a4c3f943c3eba5efdace54ce293",
     "url": "/nhentai-generator/index.html"
   }
 ];

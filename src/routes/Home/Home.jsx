@@ -1,26 +1,32 @@
 import React, {Component} from 'react';
 import {Button}           from 'react-bootstrap';
 
-import Assets from '../../assets';
+import {WarningModal} from '../../components';
+import Assets         from '../../assets';
 import './Home.scss';
 
 class Home extends Component {
-  constructor(props){
+  constructor(props) {
     super(props);
     this.state = {
-      number: 0
+      number: 0,
+      show  : true
     }
   }
+
   generateCode = () => {
-    const min = 1;
-    const max = 265000;
+    const min  = 1;
+    const max  = 265000;
     const rand = min + Math.random() * (max - min);
-    this.setState({ number: Math.floor(rand) });
+    this.setState({number: Math.floor(rand)});
   };
 
+  closeModal() {
+    this.setState({ show: false });
+  }
+
   render() {
-    console.log(this.state.number);
-    const {number} = this.state;
+    const {number,show} = this.state;
     return (
       <div className="container">
         <div className="title">
@@ -33,15 +39,17 @@ class Home extends Component {
           <div className="message">
             {
               number === 0 ? "Please click \"Generate Number\" button" :
-              <div>
-                This is your nHentai number:<br/>
-                Click the number to access the doujin: <br/>
-                <a href={`https://nhentai.net/g/${number}`} target="_blank" rel="noopener noreferrer">{number}</a> <br/>
-                Use VPN to access to website if your provider blocks your wae.
-              </div>
+                <div>
+                  This is your nHentai number:<br/>
+                  Click the number to access the doujin: <br/>
+                  <a href={`https://nhentai.net/g/${number}`} target="_blank" rel="noopener noreferrer">{number}</a>
+                  <br/>
+                  Use VPN to access to website if your provider blocks your wae.
+                </div>
             }
           </div>
         </div>
+        <WarningModal open={show} onHide={e => this.closeModal()}/>
       </div>
     );
   }

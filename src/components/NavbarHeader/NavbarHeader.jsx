@@ -13,6 +13,7 @@ const NavbarHeader = () => {
           <Nav.Link href="/#">Home</Nav.Link>
           <Nav.Link href="/#/about">About</Nav.Link>
           <Nav.Link href="/#/faq">FAQ</Nav.Link>
+          <Nav.Link href="/#/surprise">Surprise</Nav.Link>
         </Nav>
         <Nav>
           <NavDropdown title="Miruku Sheki" id="basic-nav-dropdown">

@@ -17,6 +17,17 @@ class About extends Component {
         </p>
         <p><b>WARNING MATURE CONTENT! Mengandung muatan konten negatif! Dilarang keras mengakses website ini jika anda
           belum berumur 18 tahun keatas!</b></p>
+        <p>Menemukan bug? Atau ingin menambahkan saran lainnya? Silahkan open issue di repository ini: <br/>
+          <a href="https://github.com/mirukusheki/nhentai-generator/issues">
+            https://github.com/mirukusheki/nhentai-generator/issues
+          </a>
+        </p>
+        <br/>
+        <p>Laman lain yang dibuat oleh MirukuSheki:</p>
+        <ul>
+          <li><a href="https://mirukusheki.github.io/ashiyaap">Ashiyaap.exe</a></li>
+          <li><a href="https://mirukusheki.github.io/aqourslivetour">Aqours Live Tour</a></li>
+        </ul>
       </div>
     );
   }

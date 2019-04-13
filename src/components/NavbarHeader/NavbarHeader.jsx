@@ -6,14 +6,14 @@ import "./NavbarHeader.scss";
 const NavbarHeader = () => {
   return (
     <Navbar bg="dark" variant="dark" expand="lg">
-      <Navbar.Brand href="#">Nhentai Generator</Navbar.Brand>
+      <Navbar.Brand href="/">Nhentai Generator</Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="mr-auto">
-          <Nav.Link href="/#">Home</Nav.Link>
-          <Nav.Link href="/#/about">About</Nav.Link>
-          <Nav.Link href="/#/faq">FAQ</Nav.Link>
-          <Nav.Link href="/#/surprise">Surprise</Nav.Link>
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="#/about">About</Nav.Link>
+          <Nav.Link href="#/faq">FAQ</Nav.Link>
+          <Nav.Link href="#/surprise">Surprise</Nav.Link>
         </Nav>
         <Nav>
           <NavDropdown title="Miruku Sheki" id="basic-nav-dropdown">

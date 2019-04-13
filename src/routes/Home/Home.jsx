@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {Button}           from 'react-bootstrap';
 
-import {WarningModal} from '../../components';
 import Assets         from '../../assets';
 import './Home.scss';
 
@@ -21,12 +20,8 @@ class Home extends Component {
     this.setState({number: Math.floor(rand)});
   };
 
-  closeModal() {
-    this.setState({ show: false });
-  }
-
   render() {
-    const {number,show} = this.state;
+    const {number} = this.state;
     return (
       <div className="container">
         <div className="title">
@@ -49,7 +44,6 @@ class Home extends Component {
             }
           </div>
         </div>
-        <WarningModal open={show} onHide={e => this.closeModal()}/>
       </div>
     );
   }

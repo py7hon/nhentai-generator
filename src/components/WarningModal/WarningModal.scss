@@ -1,0 +1,11 @@
+@import "../../styles/libs";
+.modal{
+  &-content{
+    .modal-body{
+      background: $darkgray;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}

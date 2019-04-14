@@ -16,9 +16,7 @@ class Home extends Component {
         title    : '',
         details  : {
           tags      : [],
-          artists   : [],
           languages : [],
-          categories: []
         },
         isLoading: false,
         isError  : false
@@ -42,9 +40,7 @@ class Home extends Component {
         title    : '',
         details  : {
           tags      : [],
-          artists   : [],
           languages : [],
-          categories: []
         },
         isLoading: true,
         isError  : false
@@ -58,9 +54,7 @@ class Home extends Component {
           thumbnail: res.data.thumbnails[0],
           details  : {
             tags      : res.data.details.tags,
-            artists   : res.data.details.artists,
             languages : res.data.details.languages,
-            categories: res.data.details.categories,
           }
         }
       });
@@ -123,12 +117,8 @@ class Home extends Component {
                               {detail.title}<br/>
                               Tags <br/>
                               {detail.details.tags.map((item, i) => <span key={i}>{item}, </span>)}<br/>
-                              Artists <br/>
-                              {detail.details.artists.map((item, i) => <span key={i}>{item} </span>)}<br/>
                               Languages <br/>
                               {detail.details.languages.map((item, i) => <span key={i}>{item} </span>)}<br/>
-                              Categories <br/>
-                              {detail.details.categories.map((item, i) => <span key={i}>{item} </span>)}
                             </div>
                           </div>
                         </div>

@@ -96,9 +96,14 @@ class Home extends Component {
                   </a>
                   <br/>
                   Use VPN to access that website if your provider blocks.
+                  <div className="mirror">
+                    <a href={`https://nhtai.bakaa.me/g/${number}`} target="_blank" rel="noopener noreferrer">
+                      Click here if you want to access without VPN
+                    </a>
+                  </div>
                 </div>
                 <div className="col-12 col-md-6">
-                  {meta.isLoading ? <Spinner animation="grow" /> :
+                  {meta.isLoading ? <Spinner animation="grow"/> :
                     <div className="doujin">
                       {meta.isError ? 'Preview Not Available' :
                         <div className="doujin-info">

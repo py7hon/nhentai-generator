@@ -1,40 +1,45 @@
-.container{
+.container {
   text-align: center;
-  .title{
+  .title {
     margin: 1em auto;
-    img{
+    img {
       width: 300px;
       margin-bottom: 1em;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         width: 220px;
       }
     }
-    h1{
+    h1 {
       margin-bottom: 0;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         font-size: 2em;
       }
     }
-    i{
+    i {
       font-weight: 300;
-      @media screen and (max-width: 768px){
+      @media screen and (max-width: 768px) {
         font-size: .9em;
       }
     }
   }
-  .generate{
-    .message{
+  .generate {
+    .message {
       margin-top: 2em;
-      a{
+      a {
         font-size: 6em;
       }
-      .spinner-grow{
+      .spinner-grow {
         width: 12em;
         height: 12em;
       }
-      .doujin{
-        &-info{
-          img{
+      .mirror {
+        a {
+          font-size: 1em;
+        }
+      }
+      .doujin {
+        &-info {
+          img {
             width: 100%;
             height: 2em;
           }

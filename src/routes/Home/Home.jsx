@@ -38,9 +38,6 @@ class Home extends Component {
                 Click the number to access the doujin: <br/>
                 <a href={`https://nhentai.net/g/${number}`} target="_blank" rel="noopener noreferrer">{number}</a> <br/>
                 Use VPN to access to website if your provider blocks your wae.
-                <div className="mirror">
-               <a href={`https://nhtai.bakaa.me/g/${number}`} target="_blank"  rel="noopener noreferrer">Click here</a> if you want to access without VPN
-                </div>
               </div>
             }
           </div>

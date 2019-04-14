@@ -12,12 +12,9 @@ class Home extends Component {
       number: 0,
       show  : true,
       detail: {
-        thumbnail: '',
         title    : '',
-        details  : {
-          tags      : [],
-          languages : [],
-        },
+        tags     : [],
+        thumbnail: '',
         isLoading: false,
         isError  : false
       }
@@ -36,29 +33,25 @@ class Home extends Component {
   async getMeta(num) {
     this.setState({
       detail: {
-        thumbnail: '',
         title    : '',
-        details  : {
-          tags      : [],
-          languages : [],
-        },
+        tags     : [],
+        thumbnail: '',
         isLoading: true,
         isError  : false
       }
     });
     try {
-      let res = await axios.get('https://apis.nhent.ai/g/' + num);
+      let res         = await axios.get('https://nhtai-api.glitch.me/api/id?id=' + num);
+      const media     = res.data.media_id;
+      const cover     = res.data.images.cover;
+      const thumbnail = this.computeCoverUrl(media, cover);
       this.setState({
         detail: {
-          title    : res.data.title,
-          thumbnail: res.data.thumbnails[0],
-          details  : {
-            tags      : res.data.details.tags,
-            languages : res.data.details.languages,
-          }
+          title: res.data.title.english,
+          tags : res.data.tags,
+          thumbnail
         }
       });
-      console.log(res);
     } catch (e) {
       this.setState({
         meta: {
@@ -69,6 +62,13 @@ class Home extends Component {
       console.log('This is your error' + e);
     }
   };
+
+  computeCoverUrl(media, image) {
+    // make cover image scr url
+    const cover_type = {j: "jpg", p: "png"};
+    const this_type  = image.t;
+    return `https://kontol.nhent.ai/galleries/${media}/cover.${cover_type[this_type]}`;
+  }
 
   render() {
     const {number, detail} = this.state;
@@ -116,9 +116,7 @@ class Home extends Component {
                               Title <br/>
                               {detail.title}<br/>
                               Tags <br/>
-                              {detail.details.tags.map((item, i) => <span key={i}>{item}, </span>)}<br/>
-                              Languages <br/>
-                              {detail.details.languages.map((item, i) => <span key={i}>{item} </span>)}<br/>
+                              {detail.tags.map((item, i) => <span key={i}>{item.name}, </span>)}<br/>
                             </div>
                           </div>
                         </div>

@@ -11,10 +11,15 @@ class Home extends Component {
     this.state = {
       number: 0,
       show  : true,
-      meta  : {
-        image    : '',
+      detail: {
+        thumbnail: '',
         title    : '',
-        tags     : '',
+        details  : {
+          tags      : [],
+          artists   : [],
+          languages : [],
+          categories: []
+        },
         isLoading: false,
         isError  : false
       }
@@ -32,35 +37,34 @@ class Home extends Component {
 
   async getMeta(num) {
     this.setState({
-      meta: {
-        image    : '',
+      detail: {
+        thumbnail: '',
         title    : '',
-        tags     : '',
-        isLoading: true
+        details  : {
+          tags      : [],
+          artists   : [],
+          languages : [],
+          categories: []
+        },
+        isLoading: true,
+        isError  : false
       }
     });
     try {
-      let res     = await axios.get('https://nhentai.net/g/' + num);
-      const regex = /content="(.*)"/gm;
-      const str   = res.data;
-      let array   = [];
-      let m;
-      while ((m = regex.exec(str)) !== null) {
-        // This is necessary to avoid infinite loops with zero-width matches
-        if (m.index === regex.lastIndex) {
-          regex.lastIndex++;
-        }
-        // The result can be accessed through the `m`-variable.
-        array.push(m[1]);
-      }
+      let res = await axios.get('https://apis.nhent.ai/g/' + num);
       this.setState({
-        meta: {
-          image    : array[2],
-          title    : array[1],
-          tags     : array[8],
-          isLoading: false
+        detail: {
+          title    : res.data.title,
+          thumbnail: res.data.thumbnails[0],
+          details  : {
+            tags      : res.data.details.tags,
+            artists   : res.data.details.artists,
+            languages : res.data.details.languages,
+            categories: res.data.details.categories,
+          }
         }
-      })
+      });
+      console.log(res);
     } catch (e) {
       this.setState({
         meta: {
@@ -73,7 +77,7 @@ class Home extends Component {
   };
 
   render() {
-    const {number, meta} = this.state;
+    const {number, detail} = this.state;
     return (
       <div className="container">
         <div className="title">
@@ -103,22 +107,28 @@ class Home extends Component {
                   </div>
                 </div>
                 <div className="col-12 col-md-6">
-                  {meta.isLoading ? <Spinner animation="grow"/> :
+                  {detail.isLoading ? <Spinner animation="grow"/> :
                     <div className="doujin">
-                      {meta.isError ? 'Preview Not Available' :
+                      {detail.isError ? 'Preview Not Available' :
                         <div className="doujin-info">
                           <b>Doujin Info</b> <br/>
                           <div className="row">
                             <div className="col-6 col-md-4">
                               <a href={`https://nhentai.net/g/${number}`} target="_blank" rel="noopener noreferrer">
-                                <img src={meta.image} alt="thumbnail"/>
+                                <img src={detail.thumbnail} alt="thumbnail"/>
                               </a>
                             </div>
                             <div className="col-6 col-md-8">
                               Title <br/>
-                              {meta.title}<br/><br/>
+                              {detail.title}<br/>
                               Tags <br/>
-                              {meta.tags}
+                              {detail.details.tags.map((item, i) => <span key={i}>{item}, </span>)}<br/>
+                              Artists <br/>
+                              {detail.details.artists.map((item, i) => <span key={i}>{item} </span>)}<br/>
+                              Languages <br/>
+                              {detail.details.languages.map((item, i) => <span key={i}>{item} </span>)}<br/>
+                              Categories <br/>
+                              {detail.details.categories.map((item, i) => <span key={i}>{item} </span>)}
                             </div>
                           </div>
                         </div>

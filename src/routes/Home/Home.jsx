@@ -95,7 +95,7 @@ class Home extends Component {
                   <br/>
                   Use VPN to access that website if your provider blocks.
                   <div className="mirror">
-                    <a href={`https://nhtai.bakaa.me/g/${number}`} target="_blank" rel="noopener noreferrer">
+                    <a href={`https://nhent.ai/g/${number}`} target="_blank" rel="noopener noreferrer">
                       Click here if you want to access without VPN
                     </a>
                   </div>

@@ -88,6 +88,7 @@ class Home extends Component {
                   <b>
                     This is your nHentai number:<br/>
                     Click here to access the doujin: <br/>
+                    Click here to download the doujin: <a href={`https://dl.nhent.ai/dl/${number}`} target="_blank" rel="noopener noreferrer">Download</a><br/>
                   </b>
                   <a href={`https://nhentai.net/g/${number}`} target="_blank" rel="noopener noreferrer">
                     {number}

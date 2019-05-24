@@ -151,12 +151,28 @@ class Home extends Component {
                             ))}
                             <br />
                             <a
-                              href={`https://dl.nhent.ai/dl/${number}`}
+                              href={`https://nhentai.net/g/${number}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="btn btn-primary"
                             >
-                              Download The Doujin
+                              View Doujin
+                            </a>
+                            <a
+                              href={`https://nhent.ai/g/${number}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn btn-primary"
+                            >
+                              View Without VPN
+                            </a>
+                            <a
+                              href={`https://dl.nhent.ai/dl/${number}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="btn btn-secondary"
+                            >
+                              Download
                             </a>
                           </div>
                         </div>
